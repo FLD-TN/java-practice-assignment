@@ -1,2 +1,7 @@
 # HELLO WORLD !
-* This is hello world!
+* Day 1 : Học về toán tử và các phép tính
+
+
+
+
+

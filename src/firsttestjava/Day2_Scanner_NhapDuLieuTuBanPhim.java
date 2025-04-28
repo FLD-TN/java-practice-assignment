@@ -36,7 +36,7 @@ class LyThuyet {
         //Nhập số nguyên
         System.out.println("Nhập năm sinh: ");
         int year = input.nextInt();
-        System.out.println("Tuổi của bạn là: " + (LocalDate.now().getYear() - year));
+        System.out.println("Tuổi của bạn  là: " + (LocalDate.now().getYear() - year));
 
 //        Nhập số thực
         System.out.println("Nhập số điểm của bạn: ");
@@ -87,9 +87,6 @@ class BaiTapVeScanner {
         double dientich=a*b;
         System.out.println("Chu Vi hcn là: "+chuvi);
         System.out.println("Diện tích hcn là: "+dientich);
-        
-        
-        
-        
+                          
     }
 }

@@ -7,6 +7,8 @@ package firsttestjava;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -15,7 +17,39 @@ import java.util.List;
 public class Day4_ArrayList {
 
     public static void main(String[] args) {
+        LyThuyet lt = new LyThuyet();
+//            lt.lyThuyet();
+        BaiTapArrayList bt = new BaiTapArrayList();
+        bt.Bai2();
+    }
 
+}
+
+class BaiTapArrayList {
+
+    Scanner input = new Scanner(System.in);
+
+    public void Bai2() {
+        //Viết ct tạo ra 1 list có n phần tử , n nhập từ bàn phím
+        // các phần tử là số ngẫu nhiên từ 1 -> 100
+
+        System.out.println("Nhập số phần tử của list: ");
+        int n = input.nextInt();
+        Random rd = new Random();
+        ArrayList<Integer> arrList = new ArrayList();
+        for(int i=0;i<n;i++)
+        {
+            int random = rd.nextInt(1,101);
+            arrList.add(random);
+        }
+        System.out.println(arrList);
+
+    }
+}
+
+class LyThuyet {
+
+    public void lyThuyet() {
         // Nhược điểm của mảng 1 chiều là k thể thêm , sửa , xoá phần tử
         // ArrayList hỗ trợ việc đó
         //khai báo 1 list rỗng
@@ -66,27 +100,25 @@ public class Day4_ArrayList {
         boolean temp3 = arrList3.contains(12);
         System.out.println("Kiểm tra list có contains số 12 hay không: " + temp3);
         System.out.println(" ");
-        
+
         // Sắp xếp tăng dần
         Collections.sort(arrList3);
-        System.out.println("List sau khi dùng Collections.sort để sx tăng dần: "+arrList3);
+        System.out.println("List sau khi dùng Collections.sort để sx tăng dần: " + arrList3);
         System.out.println(" ");
-        
+
         // Đảo ngược list
         Collections.reverse(arrList3);
-        System.out.println("List sau khi đảo ngược bằng Collections.reverse: "+arrList3);
+        System.out.println("List sau khi đảo ngược bằng Collections.reverse: " + arrList3);
         System.out.println(" ");
-        
+
         //kiểm tra list có rỗng k
         boolean temp4 = arrList3.isEmpty();
-        System.out.println("List có rỗng không bằng hàm isEmpty"+temp4);
+        System.out.println("List có rỗng không bằng hàm isEmpty: " + temp4);
         System.out.println(" ");
-        
+
         // Xoá toàn bộ pt của list
         arrList3.clear();
         System.out.println(arrList3);
         System.out.println("Xoá arrList3 hoàn tất!!!!");
-
     }
-
 }

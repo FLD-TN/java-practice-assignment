@@ -20,7 +20,7 @@ public class Day4_ArrayList {
         LyThuyet lt = new LyThuyet();
 //            lt.lyThuyet();
         BaiTapArrayList bt = new BaiTapArrayList();
-        bt.Bai2();
+        bt.Bai31();
     }
 
 }
@@ -28,21 +28,113 @@ public class Day4_ArrayList {
 class BaiTapArrayList {
 
     Scanner input = new Scanner(System.in);
+    Random rd = new Random();
 
-    public void Bai2() {
+    public void Bai28() {
         //Viết ct tạo ra 1 list có n phần tử , n nhập từ bàn phím
         // các phần tử là số ngẫu nhiên từ 1 -> 100
 
         System.out.println("Nhập số phần tử của list: ");
         int n = input.nextInt();
-        Random rd = new Random();
         ArrayList<Integer> arrList = new ArrayList();
-        for(int i=0;i<n;i++)
-        {
-            int random = rd.nextInt(1,101);
+        for (int i = 0; i < n; i++) {
+            int random = rd.nextInt(1, 101);
             arrList.add(random);
         }
         System.out.println(arrList);
+    }
+
+    public void Bai29() {
+
+        //viết ct nhập vào 1 danh sách list có n phần tử
+        // n do người dùng nhập, sau đó : 
+        // tạo ra 1 list mới bình phương các phần tử 
+        // xác định bao nhiêu phần tử lớn hơn 50
+        System.out.println("Nhập số phần tử: ");
+        int n = input.nextInt();
+        ArrayList<Integer> arrList = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            System.out.println("Nhập giá trị thứ " + i + ": ");
+            arrList.add(input.nextInt());
+        }
+        System.out.print("List ban đầu: ");
+        System.out.println(arrList);
+
+        int more50 = 0;
+        ArrayList<Integer> arrList2 = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            int num = arrList.get(i);
+            num *= num;
+            arrList2.add(num);
+            if (num > 50) {
+                more50++;
+            }
+        }
+        System.out.print("List sau khi bình phương: ");
+        System.out.println(arrList2);
+        System.out.println("Có " + more50 + " phần tử lớn hơn 50 !");
+
+    }
+
+    public void Bai30() {
+
+        // Viết ct nhập vào 1 list có n phần tử ngẫu nhiên 
+        // các phần tử là số nguyên, n nhập từ bàn phím
+        //  In ra có bao nhiêu số nhỏ hơn 80 
+        //  In ra vị trí index của các số đó
+        System.out.println("Nhập số phần tử của bài 30: ");
+        int n = input.nextInt();
+        ArrayList<Integer> arrList = new ArrayList<>();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            arrList.add(rd.nextInt(100));
+        }
+
+        System.out.print("Danh sách: ");
+        System.out.println(arrList);
+
+        ArrayList<Integer> vitri = new ArrayList<>();
+        for (int i = 0; i < arrList.size(); i++) {
+            if (arrList.get(i) < 80) {
+                count++;
+                vitri.add(i);
+            }
+        }
+        System.out.println("Có " + count + " số nhỏ hơn 80 .");
+        System.out.println("Index các số nhỏ hơn 80 là:" + vitri);
+
+    }
+
+    public void Bai31() {
+
+        // Cho List lst = {1,9,3,14,5,27,8}
+        // viết ct in ra số lớn thứ 2 và số nhỏ thứ 2 trong list 
+        // in ra vị trí index số đó
+        ArrayList<Integer> arrList = new ArrayList<>(List.of(1, 9, 3, 14, 5, 27, 8));
+        System.out.print("List: ");
+        System.out.println(arrList);
+        ArrayList<Integer> sortedList = new ArrayList<>(arrList);
+        Collections.sort(sortedList);
+        int secondmax = sortedList.get(sortedList.size() - 2);
+        int secondmin = sortedList.get(1);
+        int indexmax = 0 ;
+        int indexmin = 0;
+        
+        for(int i = 0; i < sortedList.size();i++)
+        {
+            if(arrList.get(i)==secondmax) 
+            {
+                indexmax = i;
+            }
+            if(arrList.get(i)==secondmin)
+            {
+                indexmin = i;
+            }
+        }
+        System.out.println("Số lớn thứ 2 là: " + secondmax+" tại vị trí "+indexmax);
+        System.out.println("Số nhỏ thứ 2 là: " + secondmin+" tại vị trí "+indexmin);    
+
+        System.out.println("");
 
     }
 }

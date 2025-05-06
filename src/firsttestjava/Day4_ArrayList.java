@@ -120,7 +120,7 @@ class BaiTapArrayList {
         int indexmax = 0 ;
         int indexmin = 0;
         
-        for(int i = 0; i < sortedList.size();i++)
+        for(int i = 0; i < sortedList.size();i++)   
         {
             if(arrList.get(i)==secondmax) 
             {
